@@ -1,0 +1,75 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+    {% if player.id_in_group == 1 %}
+
+    <p>
+        You have been randomly assigned the role of <strong>First Person</strong>, while the other participant is Second Person. During the activity
+        you will see a figure like the one below. The figure will help you see the possible outcomes of the scenario based on your and the other
+        participant's decisions. You and the other participant randomly matched with you can send messages to each other before making your decisions.
+        These messages can only have the following form: <strong>“I choose A”</strong> or <strong>“I choose B,”</strong> and this applies to all
+        participants.
+    </p>
+
+    <img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
+    <p>
+        As First Person, you will be moving first and have two options, <strong>A</strong> or <strong>B</strong>. You will send a message in the
+        form of <strong>"I choose A"</strong> or <strong>"I choose B"</strong> to the Second Person matched with you. After the Second Person
+        receives your message, they must send you their message in the form <strong>"I choose A"</strong> or <strong>"I choose B"</strong>. This
+        message exchange will only take place once. After receiving Second Person's message, you can change your decision and Second Person can also
+        change theirs. Again, you will be making your decision before Second Person who will know your decision
+        before making theirs, but you will not know Second Person decision. Second Person will also be told this.
+    </p>
+
+    <p>
+        When you choose <strong>A</strong> in Figure 1, then the following outcomes are possible:
+        <ol>
+            <li>If Second Person chooses <strong>A</strong>, then both of you will receive <strong>10 points</strong> each.</li>
+            <li>If Second Person chooses <strong>B</strong>, then you will receive <strong>70 points</strong> and Second Person will receive <strong>20 points</strong>.</li>
+        </ol>
+        On the other hand, when you choose <strong>B</strong>, then the follow outcomes are possible:
+        <ol>
+            <li>If Second Person chooses <strong>A</strong>, then you will receive <strong>20 points</strong> and Second Person will receive <strong>70 points</strong>.</li>
+            <li>If Second Person chooses <strong>B</strong>, then you will both receive <strong>40 points</strong> each.</li>
+        </ol>
+    </p>
+
+    {% else %}
+
+    <p>
+        You have been randomly assigned the role of <strong>Second Person</strong>, while the other player is First Person. During the activity
+        you will see a figure like the one below. The figure will help you see the possible outcomes of the scenario based on your and the other
+        participant's decisions. As Second Person, you have two options <strong>A</strong> or <strong>B</strong> located at the bottom of the figure. Once you make your
+        decision you cannot change your mind. First Person will not know your choice when they make their decision.
+    </p>
+
+    <img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
+    <p>
+        As Second Person, you will be moving second. First Person will send you a message in the form of <strong>"I choose A"</strong> or <strong>"I choose B"</strong>. After you have 
+        received their message, you will then make a decision on the message you want to send to First Person. You must send your message in the form <strong>"I choose A"</strong> or
+        <strong>"I choose B"</strong>. This message exchange will only take place once. After sending your message, you can change your decision and First Person can also change theirs. 
+        First Person will make their decision before you make yours. You will know their decision, but First Person
+        will not know yours. First Person will also be told this.
+    <p>
+        When you choose <strong>A</strong> in Figure 1, then the following outcomes are possible:
+        <ol>
+            <li>If First Person chooses <strong>A</strong>, then both of you will receive <strong>10 points</strong> each.</li>
+            <li>If First Person chooses <strong>B</strong>, then you will receive <strong>20 points</strong> and First Person will receive <strong>70 points</strong>.</li>
+        </ol>
+        On the other hand, when you choose <strong>B</strong>, then the follow outcomes are possible:
+        <ol>
+            <li>If First Person chooses <strong>A</strong>, then you will receive <strong>70 points</strong> and First Person will receive <strong>20 points</strong>.</li>
+            <li>If First Person chooses <strong>B</strong>, then you will both receive <strong>40 points</strong> each.</li>
+        </ol>
+    </p>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

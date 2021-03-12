@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Quiz
+{% endblock %}
+
+{% block content %}
+    <img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
+
+  <p>
+    We want to make sure you have a good understanding of the instructions. Please complete the following quiz before continuing.
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

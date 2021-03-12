@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+        Trial Round: Your Message
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global/matrix.css' %}" />
+
+    <style>
+        .highlight-row-on-hover:hover td {
+            background-color: #fcf8e3;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+        {% if player.pNum == 1 %}
+
+            <img src="{% static 'control/control2-graph-P1.png' %}" class="center" width="80%" height="80%" />
+
+        {% else %}
+
+            <img src="{% static 'control/control2-graph-P2.png' %}" class="center" width="80%" height="80%" />
+
+        {% endif %}
+
+<br />
+<div class="form-group required">
+    {% if player.pNum == 1 %}
+    <h2> You are First Person playing with a bot</h2>
+    <p>
+        {% if player.send_answer != None %} {%if player.send_answer != 'ask' %} Second Person's message: "I choose {{player.get_bot_answer_display}}". {% endif %} {% endif %}<br>
+    </p>
+    {% formfield player.send_message label="Your message to the other participant?<br>This is not your final answer" %}
+    {% else %}
+        
+    <h2> You are Second Person playing with a bot</h2>
+    <p>
+        {% if player.send_message != None %} {% if player.send_message != 'ask' %} First Person's message: "I choose {{player.get_bot_answer_display}}". {% endif %} {% endif %}<br>
+    </p>
+    {% formfield player.send_answer label="Your message to the other participant?<br>This is not your final answer" %}
+    {% endif %}
+        {% next_button %}
+</div>
+
+
+{% endblock %}

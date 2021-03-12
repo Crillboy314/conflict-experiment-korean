@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if same_choice %}
+            Both of you chose 
+                {% if my_decision == "L" %}
+                    the left side.
+                {% else %}
+                    the right side.
+                {% endif %}
+        {% else %}
+            You chose 
+                {% if my_decision == "L" %}
+                    the left side
+                {% else %}
+                    the right side
+                {% endif %}
+            and the other participant chose 
+                {% if opponent_decision == "L" %}
+                    the left side.
+                {% else %}
+                    the right side.
+                {% endif %}
+        {% endif %}
+    </p>
+    <p>
+        As a result, you earned <strong>{{ player.trial_payoff }}</strong> based on your and the other player's decisions.
+        This does not sums to your final payoff. The trial is finished, you will now do the activity.
+    </p>
+
+    {% next_button %}
+
+
+{% endblock %}

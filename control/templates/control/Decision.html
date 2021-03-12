@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your Choice
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global/matrix.css' %}" />
+
+    <style>
+        .highlight-row-on-hover:hover td {
+            background-color: #fcf8e3;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+<img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
+<br />
+<div class="form-group required">
+    {% if player.id_in_group == 1 %}
+
+    <h2> You are First Person playing with other participant</h2>
+
+    {% formfield player.decision label="Your choice is:" %}
+
+        {% else %}
+
+    <h2> You are Second Person playing with other participant</h2>
+    <p>
+        First person decision: "Option {{player.other_player.decision}}".
+    </p>
+
+    {% formfield player.decision label="Your choice is:" %}
+
+        {% endif %}
+</div>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+        Your Choice
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global/matrix.css' %}" />
+
+    <style>
+        .highlight-row-on-hover:hover td {
+            background-color: #fcf8e3;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+        {% if player.id_in_group == 1 %}
+
+            <img src="{% static 'control/control2-graph-P1.png' %}" class="center" width="80%" height="80%" />
+
+        {% else %}
+
+            <img src="{% static 'control/control2-graph-P2.png' %}" class="center" width="80%" height="80%" />
+
+        {% endif %}
+<br />
+<div class="form-group required">
+    {% if player.id_in_group == 1 %}
+    <h2> You are First Person playing with other participant</h2>
+    <p>
+        Second person said: "I choose
+        {% if group.ask_answer%}
+            {% if group.send_answer == 'R' %}
+                <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
+            {% else %}
+                <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
+            {% endif %}
+        ".
+        {% else %}
+        {{group.get_send_answer_display}}".
+        {% endif %}
+        <br>
+        What is your final decision?
+    </p>
+    {% formfield player.decision label="Your choice is:" %}
+    {% else %}
+        
+    <h2> You are Second Person playing with other participant</h2>
+    <p>
+        First person said: "I choose
+        {% if group.ask_answer%}
+            {% if group.send_message == 'R' %}
+                <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
+            {% else %}
+                <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
+            {% endif %}
+        ".
+        {% else %}
+        {{ group.get_send_message_display }}".
+        {% endif %}<br>
+        First person decision: "Option
+        {% if group.ask_answer%}
+            {% if player.other_player.decision == 'R' %}
+                <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
+            {% else %}
+                <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
+            {% endif %}
+        ".
+        {% else %}
+        {{ other_decision }}".
+        {% endif %}
+        <br>
+           
+        What is your final decision?
+    </p>
+    {% formfield player.decision label="Your choice is:" %}
+    {% endif %}
+</div>
+
+    {% next_button %}
+
+{% endblock %}

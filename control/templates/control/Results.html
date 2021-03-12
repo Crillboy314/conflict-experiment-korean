@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if same_choice %}
+            Both of you chose {{ my_decision }}.
+        {% else %}
+            You chose {{ my_decision }} and the other participant chose {{ opponent_decision }}.
+        {% endif %}
+    </p>
+
+    <p>
+        As a result, you earned <strong>{{ player.payoff }}</strong> based on your and the other player's decisions.
+        The total amount in money you have earned from the activity is 
+        <strong>{{ participant.payoff_plus_participation_fee }}</strong>, which includes your participation fee.
+    </p>
+    {% next_button %}
+
+{% endblock %}

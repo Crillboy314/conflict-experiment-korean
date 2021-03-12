@@ -1,0 +1,61 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+    {% if player.id_in_group == 1 %}
+
+    <p>
+        You have been randomly assigned the role of <strong>First Person</strong>, while the other player is Second Person. You will see a figure like the
+        one below during the activity. The figure will help you to see the possible outcomes of the two-person scenario based on your and the other participant’s
+        decisions. You and the other participant randomly matched with you can send messages to each other before making your final decisions. These messages
+        can only have this form: “I choose #”, “I choose @,”, or you can ask the other player to reveal information since the symbols on the figure 
+        above are different between both of you.
+    </p>
+    <img src="{% static "control/control2-graph-P1.png" %}" class="center" width="80%" height="80%" />
+    
+    <p>
+        When you choose <strong>#</strong> in Figure 1, then the following can happen:
+        <ol>
+            <li>If Second Person chooses left (something you will not know) which in your figure amounts to #, then both of you will receive <strong>10 points</strong> each.</li>
+            <li>If Second Person chooses right (something you will not know) which in your figure amounts to @, then you will receive <strong>70 points</strong> and Second Person will receive <strong>20 points</strong>.</li>
+        </ol>
+        On the other hand, when you choose when you choose @, then the following can happen:
+        <ol>
+            <li>If Second Person chooses left (something you will not know) which in your figure amounts to #, then you will receive <strong>20 points</strong> and Second Person will receive <strong>70 points</strong>.</li>
+            <li>If Second Person chooses right (something you will not know) which in your figure amounts to @, then you will both receive <strong>40 points</strong> each.</li>
+        </ol>
+    </p>
+
+    {% else %}
+
+    <p>
+        You have been randomly assigned the role of <strong>Second Person</strong>, while the other player is First Person. You will see a figure like the
+        one below during the activity. The figure will help you to see the possible outcomes of the two-person scenario based on your and the other participant’s
+        decisions. You and the other participant randomly matched with you can send messages to each other before making your final decisions. These messages
+        can only have this form: <strong>“I choose &amp;”,</strong> <strong>“I choose *,”</strong>, or you can ask the other player to reveal information since the symbols on the figure 
+        above are different between both of you.
+    </p>
+     <img src="{% static "control/control2-graph-P2.png" %}" class="center" width="80%" height="80%" />
+
+    <p>
+        If First Person chooses moving left (something you will not know) in Figure 1, then the following can happen:
+        <ol>
+            <li>If you choose &amp;, then both of you will receive <strong>10 points</strong> each.</li>
+            <li>If you choose *, then you will receive <strong>20 points</strong> and First Person will receive <strong>70 points</strong>.</li>
+        </ol>
+        If First Person chooses moving right (something you will not know), then the following can happen:
+        <ol>
+            <li>If you choose &amp;, then you will receive <strong>70 points</strong> and First Person will receive <strong>20 points</strong>.</li>
+            <li>If you choose *, then you will both receive <strong>40 points</strong> each.</li>
+        </ol>
+    </p>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

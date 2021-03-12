@@ -1,0 +1,129 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    GAMBLE SELECTION
+{% endblock %}
+{% block styles %}
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+        .centerT {
+            margin: auto;
+            width: 90%;
+            border: 3px solid #73AD21;
+            text-align: center;
+        }
+        table#t01 {
+            width: 100%;
+        }
+        table#t01 td, th {
+            border: 1px solid #000000;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        Instructions
+    </h3>
+
+    <p>
+        In this section, you will select from five different gambles which gamble you would like to play. The five different gambles are listed in the table below. You must select one and only one of these gambles. 
+        Each gamble has two possible outcomes (Event A or Event B) with the indicated probabilities of occurring. Your compensation will be determined by:  1) which of the five gambles you select; and 2) which of the two possible events occur.
+
+        For example:  If you select Gamble 4 from the table and Event A occurs, you will be paid 40 points.  If Event B occurs, you will be paid 4 points.
+
+        For every gamble, each event has a 50% chance of occurring.
+
+        Here we will be using points to compute your final payoff, based on an <strong>
+        exchange rate of {{ erpoint|c }} equivalent to $1</strong>.
+    </p>
+        <div class="centerT"><table id="t01">
+            <tr>
+                <th>Gamble</th>
+                <th>Event</th>
+                <th>Payoff</th>
+                <th>Probabilities</th>
+                <th>Your Selection</th>
+            </tr>
+            <tr>
+                <td rowspan="2" bgcolor="#E2E2E2">1</td>
+                <td>A</td>
+                <td>16</td>
+                <td>50%</td>
+                <td rowspan="2" bgcolor="white">{{ form.gamble_number.0 }}</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>16</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td rowspan="2" bgcolor="#E2E2E2">2</td>
+                <td>A</td>
+                <td>24</td>
+                <td>50%</td>
+                <td rowspan="2" bgcolor="white">{{ form.gamble_number.1 }}</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>12</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td rowspan="2" bgcolor="#E2E2E2">3</td>
+                <td>A</td>
+                <td>32</td>
+                <td>50%</td>
+                <td rowspan="2" bgcolor="white">{{ form.gamble_number.2 }}</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>8</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td rowspan="2" bgcolor="#E2E2E2">4</td>
+                <td>A</td>
+                <td>40</td>
+                <td>50%</td>
+                <td rowspan="2" bgcolor="white">{{ form.gamble_number.3 }}</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>4</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td rowspan="2" bgcolor="#E2E2E2">5</td>
+                <td>A</td>
+                <td>48</td>
+                <td>50%</td>
+                <td rowspan="2" bgcolor="white">{{ form.gamble_number.4 }}</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>0</td>
+                <td>50%</td>
+            </tr>
+        </table>
+    {{ form.gamble_number.errors }}
+</div>
+</div>
+</div>
+    <div align="center">{% next_button %}</div>
+
+{% endblock %}

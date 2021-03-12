@@ -1,0 +1,37 @@
+{% load otree static %}
+
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        Welcome
+    </h3>
+
+    <p>
+        Thank you for participating in this decision-making activity. Your show-up fee is <strong>{{ sufee }}</strong>. 
+        In this activity, you have been randomly and anonymously paired with another participant. One of you was selected at 
+        random to be <strong>First Person</strong>; the other to be <strong>Second Person</strong>. You will learn whether you are 
+        First or Second Person prior to making any decision. During this activity you will be able to earn more money based on 
+        the decisions of both you and your partner. Here we will be using points to compute your final payout, based on an <strong> 
+        exchange rate of {{ erpoint|c }} equivalent to $1</strong>. At the end of the activity, you will be privately paid in cash based
+        on your and your partner's decisions. Please read the instructions carefully so you understand how your payout is determined. 
+        Please turn off your mobile phone and do not talk to the other participants. If you have a question at any moment,
+        please raise your hand and a facilitator will answer them privately.
+        Next, you will be shown how the payoffs are determined and then given a quiz to test your understanding. 
+        Afterward, you will do a trial of the activity with a bot that will not affect your final payout.
+        Then, you will proceed to the activity for the actual round with the other participant. Finally you will answer 
+        some individual questions.
+    </p>
+
+
+</div>
+</div>

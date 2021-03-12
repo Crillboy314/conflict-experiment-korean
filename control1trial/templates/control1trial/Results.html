@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if same_choice %}
+            Both of you chose {{ my_decision }}.
+        {% else %}
+            You chose {{ my_decision }} and the other participant chose {{ opponent_decision }}.
+        {% endif %}
+    </p>
+    <p>
+        As a result, you earned <strong>{{ player.trial_payoff }}</strong> based on your and the other player's decisions.
+        This does not affect your final payout. The trial is now completed and you will continue on to the actual activity.
+    </p>
+
+    {% next_button %}
+
+
+{% endblock %}

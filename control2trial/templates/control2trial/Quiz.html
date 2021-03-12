@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Quiz
+{% endblock %}
+
+{% block content %}
+    {% if player.id_in_group == 1 %}
+
+    <img src="{% static "control/control2-graph-P1.png" %}" class="center" width="80%" height="80%" />
+
+  <p>
+    We want to make sure you have a good understanding of the instructions. Please complete the following quiz before continuing.
+  </p>
+
+    {% formfields %}
+
+    {% else %}
+
+    <img src="{% static "control/control2-graph-P2.png" %}" class="center" width="80%" height="80%" />
+
+    <p>
+      We want to make sure you have a good understanding of the instructions. Please complete the following quiz before continuing.</p>
+
+    {% formfields %}
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

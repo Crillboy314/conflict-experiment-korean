@@ -1,0 +1,67 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+    {% if player.id_in_group == 1 %}
+
+    <p>
+        You have been randomly assigned the role of <strong>First Person</strong>, while the other player is Second Person. During the activity
+        you will see a figure like the one below. The figure will help you see the possible outcomes of the scenario based on your and the other
+        participant's decisions. As First Person, you have two options, either <strong>A</strong> or <strong>B</strong>, located at the top of the figure. Once you make your 
+        decision you cannot change your mind. Second Person will know your choice when they make their decision, and you will not know theirs. 
+        Both of you are told this.
+        After both participants have made their decisions, each of you will be informed the other participant's choice and the payout earned.
+    </p>
+
+    <img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
+    <p>
+        When you choose <strong>A</strong> in Figure 1, then the following outcomes are possible:
+        <ol>
+            <li>If Second Person chooses <strong>A</strong>, then both of you will receive <strong>10 points</strong> each.</li>
+            <li>If Second Person chooses <strong>B</strong>, then you will receive <strong>70 points</strong> and Second Person will receive <strong>20 points</strong>.</li>
+        </ol>
+        On the other hand, when you choose <strong>B</strong>, then the follow outcomes are possible:
+        <ol>
+            <li>If Second Person chooses <strong>A</strong>, then you will receive <strong>20 points</strong> and Second Person will receive <strong>70 points</strong>.</li>
+            <li>If Second Person chooses <strong>B</strong>, then you will both be receive <strong>40 points</strong> each.</li>
+        </ol>
+        We will now answer any questions you may have, please raise your hand.
+    </p>
+
+    {% else %}
+
+    <p>
+        You have been randomly assigned the role of <strong>Second Person</strong>, while the other player is First Person. During the activity
+        you will see a figure like the one below. The figure will help you see the possible outcomes of the scenario based on your and the other
+        participant's decisions. First Person will make their decision first and you will be sent a message in the form of "I choose A" or "I choose B".
+        After First Person has made their decision then you will make your decision. As Second Person, you have two options, either <strong>A</strong> or <strong>B</strong>, located at the bottom of the figure.
+        Once you make your decision you cannot change your mind. 
+        First Person will not know your choice when they make their decision but you will know theirs.
+        Both of you are told this.
+        After both participants have made their decisions, each of you will be informed the other participant's choice and the payout earned.
+    </p>
+
+   <img src="{% static "control/control-graph.png" %}" width="80%" height="80%" class="center" />
+    <p>
+        When you choose <strong>A</strong> in Figure 1, then the following outcomes are possible:
+        <ol>
+            <li>If First Person chooses <strong>A</strong>, then both of you will receive <strong>10 points</strong> each.</li>
+            <li>If First Person chooses <strong>B</strong>, then you will be receive <strong>20 points</strong> and First Person will receive <strong>70 points</strong>.</li>
+        </ol>
+        On the other hand, when you choose <strong>B</strong>, then the follow outcomes are possible:
+        <ol>
+            <li>If First Person chooses <strong>A</strong>, then you will receive <strong>70 points</strong> and First Person will receive <strong>20 points</strong>.</li>
+            <li>If First Person chooses <strong>B</strong>, then you will both receive <strong>40 points</strong> each.</li>
+        </ol>
+        We will now answer any questions you may have, please raise your hand.
+    </p>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

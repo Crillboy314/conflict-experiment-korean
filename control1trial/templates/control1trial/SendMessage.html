@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Trial Round: Your Message
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global/matrix.css' %}" />
+
+    <style>
+        .highlight-row-on-hover:hover td {
+            background-color: #fcf8e3;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+<img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
+<br />
+<div class="form-group required">
+    {% if player.id_in_group == 1 %}
+
+    <h2> You are First Person playing with a bot</h2>
+    <p>
+        What message do you want to send to Second Person?<br>
+        This is not your final decision, you can change your decision later.
+    </p>
+    {% formfield player.send_message label = "" %}
+
+        {% else %}
+
+    <h2> You are Second Person playing with a bot</h2>
+    <p>
+        First Person says: "{{player.get_send_message_display}}". <br>
+        What message do you want to send to First Person?<br>
+        This is not your final decision, you can change your option later.
+    </p>
+    {% formfield player.send_answer label = "" %}
+
+        {% endif %}
+</div>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if same_choice %}
+            Both of you chose 
+                {% if my_decision == "L" %}
+                    the left side.
+                {% else %}
+                    the right side.
+                {% endif %}
+        {% else %}
+            You chose 
+                {% if my_decision == "L" %}
+                    the left side
+                {% else %}
+                    the right side
+                {% endif %}
+            and the other participant chose 
+                {% if opponent_decision == "L" %}
+                    the left side.
+                {% else %}
+                    the right side.
+                {% endif %}
+        {% endif %}
+    </p>
+    <p>
+        As a result, you earned <strong>{{ player.payoff }}</strong> based on your and the other player's decisions.
+        The total amount in money you have earned from the activity is
+        <strong>{{ participant.payoff_plus_participation_fee }}</strong>, which includes your endowment and participation fee.
+    </p>
+
+    {% next_button %}
+
+
+{% endblock %}

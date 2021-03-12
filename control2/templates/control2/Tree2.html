@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+  
+{% block content %}
+    {% if player.id_in_group == 1 %}
+
+    <p>
+        Since you are First Person you will be moving first. <strong>Second Person observes the same figure as you but with different symbols on it. In other words, their figure does not
+        have the symbols # and @ but others</strong>. Thus, when Second Person receives your message the symbols on it will not correspond to their symbols. You will start with an
+        endowment of <strong>5 points</strong> that can be used during the activity. To begin, you must send a message to Second Person. You have the option of sending a message in the form of <strong>“I choose #”</strong> 
+        or <strong>“I choose @”</strong> for free, or you can ask Second Person to reveal which side of the figure they have chosen, for which you will <strong>incur a cost of 5 points deducted from your endowment</strong>.
+    </p>
+    <p>
+        After the Second Person receives your message, they have multiple options. If you sent a message in the form of “I choose #” or “I choose @”, Second Person has the option of 
+        sending a message in the form of “I choose …” where the symbol will not correspond to the symbols on your figure. At that point, you will then move on to making your final decisions.
+    </p>
+    <p>
+        Likewise, if you sent a message of the form “I choose …” then they also have the option of asking you to reveal which side of the figure you chose (left or right) for which <strong>they will 
+        incur a cost of 5 points</strong>. You can either reveal the side of figure you chose for free, or <strong>for a cost of 5 points deducted from your endowment</strong> you can keep your choice secret. If you revealed the side of the figure you 
+        chose, Second Person must also send you a message showing which side of the figure they chose. Otherwise, if you chose to keep your choice secret, you will receive a message in the form of “I choose …” 
+        from Second Person. At that point, you will then move on to making your final decisions. 
+    </p>
+    <p>
+        If you asked Second Person to reveal the side of the figure they have chosen in your first message, they have the option of revealing that information to you for free or they can keep it secret 
+        for which <strong>they will incur a cost of 5 points</strong>. If they chose the latter, you will receive a message from Second Person in the form of “I choose …” where the symbol chosen will not 
+        correspond to the symbols on your figure and you must respond with a message of the form “I choose …”. You will then move on to making your final decisions. Otherwise, if they chose to reveal 
+        the information, you will receive a message showing the side of the figure they have chosen, and you must respond with a message indicating which side of the figure you have chosen. Once you have
+        received these messages, then you will move on to making your final decisions.
+    </p>
+    <p>
+        After receiving Second Person’s message you can either stay with your original choice or change it for your final decision. Second Person can also stay with their first choice or change it for 
+        their final decision. Again you will be making your final decision before Second Person who will know this before making their decision, 
+        but you will not know theirs. Both of you will be told this. The final decisions of both First and Second Person will determine the payout.
+    </p>
+
+    {% else %}
+
+    <p>
+        Since you are Second Person, then you must wait for First Person’s message before sending your own message. <strong>It is important to remember that First
+        Person observes the same figure as you but with different symbols on it. In other words, their figure does not have the symbols &amp; and * but others.</strong>  You will start with an
+        endowment of <strong>5 points</strong> that can be used during the activity. First Person’s message will either be of the form “I choose …” or “I choose …”, where the symbols chosen will 
+        not correspond to the symbols on your figure, or they will ask you to reveal which side of the figure you have chosen for which <strong>they will incur a cost of 5 points</strong>.
+    </p>
+    <p>
+        After you receive First Person’s message, you then have multiple options depending on the form of their message. If they sent you a message in the 
+        form of “I choose …”, you can either send them a message in the form “I choose &amp;” or “I choose *”, or you can ask them to reveal the side of the 
+        figure they have chosen for which <strong>you will incur a cost of 5 points deducted from your endowment</strong>. If you chose the latter, First Person has the option of revealing that information 
+        for free or they can keep it secret for which <strong>they will incur a cost of 5 points</strong>. If they chose to reveal the information, you must also send a message
+        to First Person revealing which side of the figure you have chosen. At that point you will move on to making your final decision. Otherwise, if they 
+        chose to keep that information secret, then you will send a message in the form “I choose …” and then proceed to making your final decision.
+    </p>
+    <p>
+        If First Person has asked you to reveal the side of the figure you have chosen, you can either reveal that information for free, or you can keep that
+        information secret for which <strong>you will incur a cost of 5 points deducted from your endowment</strong>. If you decided to reveal the information, you will send a message to First Person showing 
+        which side of the figure you have chosen (left or right) and you will also receive a message from First Person showing which side of the figure they have 
+        chosen. At that point, you will then move on to make your final decision. Otherwise, if you decided to keep that information secret, you will send a 
+        message to First Person in the form “I choose …” and you will also receive a message from First Person in the form “I choose …” and then proceed to making your final decision.
+    </p>
+    <p>
+        After receiving First Person’s message you can either stay with your original choice or change it for your final decision. First Person can also stay 
+        with their first choice or change it for their final decision. Again you must wait for First Person final decision before making yours, 
+        First Person will not know your decision. Both of you will be told this.
+        The final decisions of both First and Second Person will determine the payout. 
+    </p>
+
+    {% endif %}
+    
+    {% next_button %}
+
+{% endblock %}
