@@ -2,14 +2,14 @@
 {% load otree static %}
 
 {% block title %}
-    Final Results
+    최종 결과
 {% endblock %}
 
 {% block content %}
     <p>
-        You chose <strong>{{player.gamble_number}}</strong> and the event was <strong>{{player.event}}</strong>
-        As a result, you earned <strong>{{ player.gain }}</strong> based on your decision and the random event.
-        The total amount in money you have earned from the activity is now <strong>{{ participant.payoff_plus_participation_fee }}</strong>, including your participation fee.
+        귀하는 <strong>{{player.gamble_number}}</strong> 를 선택하였고, 사건은 <strong>{{player.event}}</strong>였습니다.
+        그 결과, 귀하의 결정과 무작위로 발생한 사건에 기반해 귀하는 <strong>{{ player.gain }}</strong> 얻었습니다.
+        귀하가 활동을 통해 획득한 총 금액은 참가비를 포함하여 <strong>{{ participant.payoff_plus_participation_fee }}</strong>입니다.
     </p>
 
     {% next_button %}

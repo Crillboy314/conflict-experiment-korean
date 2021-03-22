@@ -9,16 +9,15 @@
 
     <p>
         {% if same_choice %}
-            Both of you chose {{ my_decision }}.
+        두 참가자 모두 {{ my_decision }}를 선택하였습니다.
         {% else %}
-            You chose {{ my_decision }} and the other participant chose {{ opponent_decision }}.
+            귀하는 {{ my_decision }} 를 선택하였고, 다른 참가자는 {{ opponent_decision }}를 선택하였습니다.
         {% endif %}
     </p>
 
     <p>
-        As a result, you earned <strong>{{ player.payoff }}</strong> based on your and the other player's decisions.
-        The total amount in money you have earned from the activity is 
-        <strong>{{ participant.payoff_plus_participation_fee }}</strong>, which includes your participation fee.
+        그 결과, 귀하와 다른 참가자의 결정에 기반해 귀하는 <strong>{{ player.payoff }}</strong> 얻었습니다. 귀하가 활동을 통해 획득한 총 
+        금액은 참가비를 포함하여 <strong>{{ participant.payoff_plus_participation_fee }}</strong> 입니다.
     </p>
     {% next_button %}
 
