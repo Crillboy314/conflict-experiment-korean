@@ -2,69 +2,67 @@
 {% load otree static %}
 
 {% block title %}
-    Instructions
+    지시문
 {% endblock %}
 
 {% block content %}
     {% if player.id_in_group == 1 %}
 
     <p>
-        You have been randomly assigned the role of <strong>First Person</strong>, while the other participant is Second Person. During the activity
-        you will see a figure like the one below. The figure will help you see the possible outcomes of the scenario based on your and the other
-        participant's decisions. You and the other participant randomly matched with you can send messages to each other before making your decisions.
-        These messages can only have the following form: <strong>“I choose A”</strong> or <strong>“I choose B,”</strong> and this applies to all
-        participants.
+        귀하는 무작위로 <strong>첫 번째 사람</strong>의 역할에 할당되었습니다. 다른 참가자는 두 번째 사람의 역할을 할 것입니다. 
+        활동 중에 귀하는 아래와 같은 그림을 보게 될 것입니다. 그림은 귀하와 다른 참가자의 결정에 기반해 시나리오 속에서 가능한 결과들을 보여줄 것입니다. 
+        귀하와 무작위로 짝이 된 다른 참가자는 결정을 내리기 전에 서로에게 메시지를 보낼 수 있습니다. 모든 참가자들은 다음 형식의 메시지만 보낼 수 있습니다: 
+        <strong>“나는 A를 선택합니다”</strong> 혹은 <strong>“나는 B를 선택합니다”</strong>.
     </p>
 
     <img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
     <p>
-        As First Person, you will be moving first and have two options, <strong>A</strong> or <strong>B</strong>. You will send a message in the
-        form of <strong>"I choose A"</strong> or <strong>"I choose B"</strong> to the Second Person matched with you. After the Second Person
-        receives your message, they must send you their message in the form <strong>"I choose A"</strong> or <strong>"I choose B"</strong>. This
-        message exchange will only take place once. After receiving Second Person's message, you can change your decision and Second Person can also
-        change theirs. Again, you will be making your decision before Second Person who will know your decision
-        before making theirs, but you will not know Second Person decision. Second Person will also be told this.
+        첫 번째 사람인 귀하는, 먼저 결정을 내리게 되는데 <strong>A</strong>와 <strong>B</strong> 두 가지 선택지를 가지고 있습니다. 귀하와 짝이 된 두 번째 사람에게 
+        <strong>“나는 A를 선택합니다”</strong> 혹은 <strong>“나는 B를 선택합니다”</strong>라는 메시지를 보내게 됩니다. 두 번째 사람은 귀하의 메시지를 받은 
+        후 <strong>“나는 A를 선택합니다”</strong> 또는 <strong>“나는 B를 선택합니다”</strong>의 형태로 귀하에게 다시 메시지를 보내야 합니다. 이 메시지 교환은 단 한 번만 이루어집니다. 
+        두 번째 사람의 결정을 확인한 후, 귀하는 최종 결정을 바꿀 수 있고 두 번째 사람도 자신의 결정을 바꿀 수 있습니다. 
+        다시 말하면, 귀하는 두 번째 사람보다 최종 결정을 먼저 내리고, 두 번째 사람은 자신의 결정을 내리기 전에 귀하의 최종결정을 알게 됩니다. 
+        그러나 귀하는 두 번째 사람의 최종결정을 미리 알 수 없습니다. 두 번째 사람 또한 이 내용을 안내 받을 것입니다.  
     </p>
 
     <p>
-        When you choose <strong>A</strong> in Figure 1, then the following outcomes are possible:
+        귀하가 그림1에서 <strong>A</strong>를 선택할 때, 다음과 같은 일이 일어날 수 있습니다.
         <ol>
-            <li>If Second Person chooses <strong>A</strong>, then both of you will receive <strong>10 points</strong> each.</li>
-            <li>If Second Person chooses <strong>B</strong>, then you will receive <strong>70 points</strong> and Second Person will receive <strong>20 points</strong>.</li>
+            <li>두 번째 사람이 <strong>A</strong>를 선택하면, 두 사람 모두 각 <strong>10점</strong>씩 받습니다.</li>
+            <li>두 번째 사람이 <strong>B</strong>를 선택하면, 귀하는 <strong>70점을</strong> 받고 두 번째 사람은 <strong>20점을</strong> 받습니다.</li>
         </ol>
-        On the other hand, when you choose <strong>B</strong>, then the follow outcomes are possible:
+        반면 귀하가 <strong>B</strong>를 선택할 때, 다음과 같은 일이 일어날 수 있습니다.
         <ol>
-            <li>If Second Person chooses <strong>A</strong>, then you will receive <strong>20 points</strong> and Second Person will receive <strong>70 points</strong>.</li>
-            <li>If Second Person chooses <strong>B</strong>, then you will both receive <strong>40 points</strong> each.</li>
+            <li>두 번째 사람이 <strong>A</strong>를 선택하면, 귀하는 <strong>20점을</strong> 받고 두 번째 사람은 <strong>70점을</strong> 받습니다.</li>
+            <li>두 번째 사람이 <strong>B</strong>를 선택하면, 두 사람 모두 각 <strong>40점</strong>씩 받습니다.</li>
         </ol>
     </p>
 
     {% else %}
 
     <p>
-        You have been randomly assigned the role of <strong>Second Person</strong>, while the other player is First Person. During the activity
-        you will see a figure like the one below. The figure will help you see the possible outcomes of the scenario based on your and the other
-        participant's decisions. As Second Person, you have two options <strong>A</strong> or <strong>B</strong> located at the bottom of the figure. Once you make your
-        decision you cannot change your mind. First Person will not know your choice when they make their decision.
+        귀하는 무작위로 두 번째 사람의 역할에 할당되었습니다. 다른 참가자는 첫 번째 사람의 역할을 할 것입니다. 활동 중에 귀하는 아래와 같은 그림을 보게 될 것입니다.
+         그림은 귀하와 다른 참가자의 결정에 기반해 시나리오 속에서 가능한 결과들을 보여줄 것입니다. 두 번째 사람인 귀하는, 그림의 맨 아래쪽에서 볼 수 있듯이 <strong>A</strong>와 <strong>B</strong>의 두 
+         가지 선택지 중 하나를 선택할 수 있습니다. 한 번 결정하면 마음을 바꿀 수 없습니다. 첫 번째 사람은 결정을 내릴 때 귀하의 선택을 알 수 없습니다. 
     </p>
 
     <img src="{% static "control/control-graph.png" %}" class="center" width="80%" height="80%" />
     <p>
-        As Second Person, you will be moving second. First Person will send you a message in the form of <strong>"I choose A"</strong> or <strong>"I choose B"</strong>. After you have 
-        received their message, you will then make a decision on the message you want to send to First Person. You must send your message in the form <strong>"I choose A"</strong> or
-        <strong>"I choose B"</strong>. This message exchange will only take place once. After sending your message, you can change your decision and First Person can also change theirs. 
-        First Person will make their decision before you make yours. You will know their decision, but First Person
-        will not know yours. First Person will also be told this.
+        두 번째 사람인 귀하는, 첫 번째 사람이 결정을 내린 후 결정을 하게 됩니다. 첫 번째 사람은 귀하에게 “<strong>“나는 A를 선택합니다”</strong> 혹은 <strong>“나는 B를 선택합니다”</strong>라는 
+        형식의 메시지를 보내게 됩니다. 귀하는 첫 번째 사람의 메시지를 받은 후 첫 번째 사람에게 어떤 메시지를 보낼지 결정하게 됩니다. 귀하는 <strong>“나는 A를 선택합니다”</strong> 
+        또는 <strong>“나는 B를 선택합니다”</strong> 의 형태로 메시지를 보내야 합니다. 이 메시지 교환은 단 한 번만 이루어집니다. 메시지를 보낸 후, 귀하는 최종 결정을 바꿀 수 있고 
+        첫 번째 사람도 자신의 결정을 바꿀 수 있습니다. 첫 번째 사람은 귀하가 최종 결정을 내리기 전에 먼저 최종 결정을 하게 됩니다. 귀하는 첫 번째 사람의 최종 
+        결정을 알게 될 것이지만, 첫 번째 사람은 귀하의 결정을 알지 못합니다. 첫 번째 사람 또한 이 내용을 안내받을 것입니다.
     <p>
-        When you choose <strong>A</strong> in Figure 1, then the following outcomes are possible:
+        귀하가 그림1에서 <strong>A</strong>를 선택할 때, 다음과 같은 일이 일어날 수 있습니다.
         <ol>
-            <li>If First Person chooses <strong>A</strong>, then both of you will receive <strong>10 points</strong> each.</li>
-            <li>If First Person chooses <strong>B</strong>, then you will receive <strong>20 points</strong> and First Person will receive <strong>70 points</strong>.</li>
+            <li>첫 번째 사람이 <strong>A</strong>를 선택하면, 두 사람 모두 각 <strong>10점</strong>씩 받습니다.</li>
+            <li>첫 번째 사람이 <strong>B</strong>를 선택하면, 귀하는 <strong>20점을</strong> 받고 첫 번째 사람은 <strong>70점을</strong> 받습니다.</li>
         </ol>
-        On the other hand, when you choose <strong>B</strong>, then the follow outcomes are possible:
+        반면 귀하가 <strong>B</strong>를 선택할 때, 다음과 같은 일이 일어날 수 있습니다.
         <ol>
-            <li>If First Person chooses <strong>A</strong>, then you will receive <strong>70 points</strong> and First Person will receive <strong>20 points</strong>.</li>
-            <li>If First Person chooses <strong>B</strong>, then you will both receive <strong>40 points</strong> each.</li>
+            <li>첫 번째 사람이 <strong>A</strong>를 선택하면, 귀하는 <strong>70점을</strong> 받고 첫 번째 사람은 <strong>20점을</strong> 받습니다.</li>
+            <li>첫 번째 사람이 <strong>B</strong>를 선택하면, 두 사람 모두 각 <strong>40점</strong>씩 받습니다.</li>
         </ol>
     </p>
 

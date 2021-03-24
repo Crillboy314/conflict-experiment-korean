@@ -81,11 +81,11 @@ class Player(BasePlayer):
     )
 
     question_1 = models.IntegerField(
-        label="Suppose that you are First Person, and that you select B, what would be your payout if Second Person also chooses B?",
+        label="귀하가 첫 번째 사람이고 B를 선택했다고 가정할 때, 두 번째 사람도 B를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
         min=10, max=70)
 
     question_2 = models.IntegerField(
-        label="Suppose that you are Second Person, you select B, what would be your payout if the First Person chooses A?",
+        label="귀하가 두 번째 사람이고 B를 선택했다고 가정할 때, 첫 번째 사람이 A를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
         min=10, max=70)
 
     trial_payoff = models.CurrencyField(initial=0)
