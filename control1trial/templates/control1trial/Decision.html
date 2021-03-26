@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-     Trial Round: Your Choice
+     연습 시행: 귀하의 선택
 {% endblock %}
 
 {% block styles %}
@@ -23,20 +23,20 @@
 <br />
 <div class="form-group required">
     {% if player.id_in_group == 1 %}
-    <h2> You are First Person playing with a bot</h2>
+    <h2> 귀하는 첫 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다.</h2>
     <p>
-        Second Person said: "I choose {{player.send_answer}}".<br>
-        What is your final decision?
+        두 번째 사람은 다음과 같이 말했습니다: “나는 {{player.send_answer}}를 선택합니다”.<br>
+        귀하의 최종 선택은 무엇입니까?
     </p>
-    {% formfield player.decision label="Your choice is:" %}
+    {% formfield player.decision label="귀하의 선택은:" %}
     {% else %}
-    <h2> You are Second Person playing with a bot</h2>
+    <h2> 귀하는 두 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다.</h2>
     <p>
-        First person said: "I choose {{player.send_message}}".<br>
-        First person decision: "Option {{player.bot_decision}}". <br>
-        What is your final decision?
+        첫 번째 사람은 다음과 같이 말했습니다: “나는 {{player.send_message}}를 선택합니다” <br>
+        첫 번째 사람의 결정: "{{player.bot_decision}}” <br>
+        귀하의 최종 결정은 무엇입니까?
     </p>
-    {% formfield player.decision label="Your choice is:" %}
+    {% formfield player.decision label="귀하의 선택은:" %}
      
     {% endif %}
 </div>

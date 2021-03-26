@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Trial Round: Your Message
+    연습 시행: 귀하의 메시지
 {% endblock %}
 
 {% block styles %}
@@ -24,20 +24,20 @@
 <div class="form-group required">
     {% if player.id_in_group == 1 %}
 
-    <h2> You are First Person playing with a bot</h2>
+    <h2> 귀하는 첫 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다.</h2>
     <p>
-        What message do you want to send to Second Person?<br>
-        This is not your final decision, you can change your decision later.
+        귀하는 두 번째 사람에게 어떤 메시지를 보내길 원하십니까?<br>
+        이것은 귀하의 최종 선택이 아니며, 이후에 결정을 바꿀 수 있습니다.
     </p>
     {% formfield player.send_message label = "" %}
 
         {% else %}
 
-    <h2> You are Second Person playing with a bot</h2>
+    <h2> 귀하는 두 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다. </h2>
     <p>
-        First Person says: "{{player.get_send_message_display}}". <br>
-        What message do you want to send to First Person?<br>
-        This is not your final decision, you can change your option later.
+        첫 번째 사람은 다음과 같이 말했습니다: "{{player.get_send_message_display}} <br>
+        귀하는 첫 번째 사람에게 어떤 메시지를 보내길 원하십니까?<br>
+        이것은 귀하의 최종 선택이 아니며, 이후에 결정을 바꿀 수 있습니다.
     </p>
     {% formfield player.send_answer label = "" %}
 

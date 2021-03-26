@@ -35,16 +35,16 @@ class Group(BaseGroup):
     send_message = models.StringField(
         label = "What message do you want to send to Second Person?",
         choices=[
-            ['A', 'I choose A'],
-            ['B', 'I choose B']
+            ['A', '나는 A를 선택합니다.'],
+            ['B', '나는 B를 선택합니다.']
         ],
         widget=widgets.RadioSelect
     )
     send_answer = models.StringField(
         label = "What message do you want to send to First Person?",
         choices=[
-            ['A', 'I choose A'],
-            ['B', 'I choose B']
+            ['A', '나는 A를 선택합니다.'],
+            ['B', '나는 B를 선택합니다.']
         ],
         widget=widgets.RadioSelect
     )
