@@ -165,9 +165,9 @@ class Player(BasePlayer):
         return self.payoff
 
     question_1 = models.IntegerField(
-    label = "Suppose that you are First Person, and that you select your right symbol, what would be your payout if Second Person also chooses their right symbol?",
+    label = "귀하가 첫 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 두 번째 사람도 오른쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
     min=10,max=70)
 
     question_2 = models.IntegerField(
-    label = "Suppose that you are Second Person, you select your right symbol, what would be your payout if the First Person chooses their left symbol?",
+    label = "귀하가 두 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 첫 번째 사람이 왼쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
     min=10,max=70)

@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Your Message
+    귀하의 메시지
 {% endblock %}
 
 {% block styles %}
@@ -21,7 +21,7 @@
         {% if player.id_in_group == 1 %}
 
             <img src="{% static 'control/control2-graph-P1.png' %}" class="center" width="80%" height="80%" />
-            <h3>You are First Person playing with other participant</h3>    
+            <h3>귀하는 첫 번째 사람으로 다른 참가자와 게임하고 있습니다.</h3>    
 
         {% else %}
 
@@ -30,7 +30,7 @@
         {% endif %}
 <br />
 <div class="form-group required">
-    <p>The other participant asks you to reveal the side of the figure you plan to choose<br>You can either say "yes", and choose to reveal your side for free, or you can say "no" and keep your decision secret for a <strong>cost of 5 points</strong>.</p>
+    <p>다른 참가자는 귀하에게 귀하가 그림의 어느 쪽을 선택할 것인지 알려달라고 요청하였습니다.<br>귀하는 “예”라고 대답해 비용 없이 귀하의 방향을 밝힐 수도 있고, 또는 <strong>5점의 비용</strong>으로 “아니오”라고 대답해 귀하의 결정을 비밀로 할 수도 있습니다.</p>
     {% formfield group.ask_answer %}
 </div>
 

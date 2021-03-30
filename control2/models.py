@@ -67,11 +67,11 @@ class Group(BaseGroup):
     ask_used = models.BooleanField(initial=False)
     ask_answer = models.BooleanField(
         choices=[
-            [True, 'Yes'],
-            [False, 'No']
+            [True, '예'],
+            [False, '아니오']
         ],
         widget=widgets.RadioSelect,
-        label="Your answer:"
+        label="귀하의 답:"
     )
 
     def set_payoff(self):
