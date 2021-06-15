@@ -28,7 +28,7 @@ class Player(BasePlayer):
 
     education = models.StringField(
         choices=['무학','초등학교 졸업','중학교 졸업','고등학교 졸업',
-        '대학교 재학 또는 중퇴','무역./기술/직업 교육','2년제 대학 학위',
+        '대학교 재학 또는 중퇴','무역/기술/직업 교육','2년제 대학 학위',
         '4년제 대학 학위','석사 학위','박사 학위'],
         label='당신의 최종 학력은 무엇입니까?',
         widget=widgets.RadioSelect)

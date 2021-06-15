@@ -9,12 +9,13 @@
 
     <p>
         {% if same_choice %}
-            둘 다 선택
+            둘 다
                 {% if my_decision == "L" %}
                     왼쪽을
                 {% else %}
                     오른쪽을
                 {% endif %}
+                선택하였습니다.
         {% else %}
             귀하는
                 {% if my_decision == "L" %}
