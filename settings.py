@@ -7,7 +7,7 @@ from os import environ
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.10,
-    'participation_fee': 2.00,
+    'participation_fee': 5000,
     'doc': "",
 }
 
@@ -53,7 +53,7 @@ SESSION_CONFIGS = [
 LANGUAGE_CODE = 'ko'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'KRW'
 USE_POINTS = True
 
 ROOM_DEFAULTS = {}
