@@ -31,32 +31,32 @@
 <br />
 <div class="form-group required">
     {% if player.id_in_group == 1 %}
-    <h2> You are First Person playing with other participant</h2>
+    <h2>귀하는 첫 번째 사람으로 다른 참가자와 게임하고 있습니다.</h2>
     <p>
-        {% if group.send_answer != None %} {%if group.send_answer != 'ask' %} Second Person's message: "I choose
+        {% if group.send_answer != None %} {%if group.send_answer != 'ask' %} 두 번째 참가자의 메시지: “나는
             {% if group.send_answer == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
                 <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
             {% endif %}
-        ". {% endif %} {% endif %}<br>
+        를 선택합니다.” {% endif %} {% endif %}<br>
     </p>
-    <p> Your message to the other participant?<br>This is not your final answer </p>
+    <p>귀하는 다른 참가자에게 어떤 메시지를 보내시겠습니까?<br>이것은 귀하의 최종 결정이 아닙니다.</p>
         {{ form.send_message.0 }} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
         {{ form.send_message.1 }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
         {{ form.send_message.errors}}
     {% else %}
-    <h2> You are Second Person playing with other participant</h2>
+    <h2>귀하는 두 번째 사람으로 다른 참가자와 게임하고 있습니다.</h2>
     <p>
-        {% if group.send_message != None %} {% if group.send_message != 'ask' %} First Person's message: "I choose
+        {% if group.send_message != None %} {% if group.send_message != 'ask' %} 첫 번째 참가자의 메시지: “나는
             {% if group.send_message == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
                 <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
             {% endif %}
-        ". {% endif %} {% endif %}<br>
+            를 선택합니다.” {% endif %} {% endif %}<br>
     </p>
-    <p> Your message to the other participant?<br>This is not your final answer </p>
+    <p>귀하는 다른 참가자에게 어떤 메시지를 보내시겠습니까?<br>이것은 귀하의 최종 결정이 아닙니다.</p>
         {{ form.send_answer.0 }} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
         {{ form.send_answer.1 }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
         {{ form.send_answer.errors}}
