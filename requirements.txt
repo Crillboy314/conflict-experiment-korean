@@ -1,4 +1,4 @@
 -r requirements_base.txt
-otree>=3.2.4,<5
+otree>=3.2.4<5
 psycopg2>=2.5.1
 sentry-sdk>=1.0.0
