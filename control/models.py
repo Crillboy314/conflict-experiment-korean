@@ -49,6 +49,9 @@ class Player(BasePlayer):
         label="Suppose that you are Second Person, you select B, what would be your payout if the First Person chooses A?",
         min=10, max=70)
 
+    def other_player_decision(self):
+        return self.get_others_in_group()[0].decision
+
     def other_player(self):
         return self.get_others_in_group()[0]
 
