@@ -30,7 +30,13 @@ class RLC_P1(Page):
     form_fields = ['send_message']
 
     def is_displayed(self):
-        return self.player.id_in_group == 1 and (self.group.send_message == 'ask' or self.group.send_message is None)
+        a = False
+        try:
+            a = self.group.send_message == 'ask'
+        except TypeError:
+            a = True
+
+        return self.player.id_in_group == 1 and a
 
     def send_message_choices(self):
         choices = [
@@ -58,7 +64,11 @@ class RLC_P2(Page):
     form_fields = ['send_answer']
 
     def is_displayed(self):
-        return self.player.id_in_group == 2 and (self.group.send_answer is None or self.group.send_answer =='ask')
+        try:
+            a = self.group.send_answer == 'ask'
+        except TypeError:
+            a = True
+        return self.player.id_in_group == 2 and a
 
     def send_answer_choices(self):
         choices = [

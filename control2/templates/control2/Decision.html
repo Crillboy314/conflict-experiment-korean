@@ -33,7 +33,7 @@
     <h2> 귀하는 첫 번째 사람으로 다른 참가자와 게임하고 있습니다.</h2>
     <p>
         두 번째 사람은 다음과 같이 말했습니다: “나는
-        {% if group.ask_answer%}
+        {% if group.get_ask_answer%}
             {% if group.send_answer == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
@@ -52,7 +52,7 @@
     <h2> 귀하는 두 번째 사람으로 다른 참가자와 게임하고 있습니다.</h2>
     <p>
         첫 번째 사람은 다음과 같이 말했습니다: “나는
-        {% if group.ask_answer%}
+        {% if group.get_ask_answer%}
             {% if group.send_message == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
@@ -63,7 +63,7 @@
         {{ group.get_send_message_display }}를 선택합니다”
         {% endif %}<br>
         첫 번째 사람의 결정: “
-        {% if group.ask_answer%}
+        {% if group.get_ask_answer%}
             {% if player.other_player.decision == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}

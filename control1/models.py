@@ -67,6 +67,9 @@ class Player(BasePlayer):
 
     trial_payoff = models.CurrencyField(initial=0)
 
+    def other_player_decision(self):
+        return self.get_others_in_group()[0].decision
+
     def other_player(self):
         return self.get_others_in_group()[0]
 

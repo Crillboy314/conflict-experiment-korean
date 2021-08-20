@@ -53,6 +53,13 @@ class Group(BaseGroup):
         ],
         widget=widgets.RadioSelect
     )
+
+    def get_send_answer(self):
+        try:
+            return self.send_answer
+        except TypeError:
+            return False
+
     send_answer = models.StringField(
         # label = "What option do you want the participant A to think you will chose?",
         choices=[
@@ -65,6 +72,13 @@ class Group(BaseGroup):
         widget=widgets.RadioSelect
     )
     ask_used = models.BooleanField(initial=False)
+
+    def get_ask_answer(self):
+        try:
+            return self.ask_answer
+        except TypeError:
+            return False
+
     ask_answer = models.BooleanField(
         choices=[
             [True, '예'],
@@ -93,7 +107,13 @@ class Group(BaseGroup):
         p2.payoff = payoff_matrix[p2.decision][p1.decision] + Constants.endowment - p2.paid_msg * Constants.message_cost
 
     def check_Ask(self):
-        N = self.send_message == 'ask' or self.send_answer == 'ask'
+        try:
+            N = self.send_message == 'ask'
+        except TypeError:
+            try:
+                N = self.send_answer == 'ask'
+            except TypeError:
+                N = False
         Y = self.ask_used and self.ask_answer
         return N and Y
 
