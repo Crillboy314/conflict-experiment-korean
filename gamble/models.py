@@ -46,8 +46,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     gamble_number = models.IntegerField(
         choices=[1, 2, 3, 4, 5],
-        doc="""This player's decision""",
-        widget=widgets.RadioSelect
+        #doc="""This player's decision""",
+        widget=widgets.RadioSelectHorizontal
     )
 
     gain = models.CurrencyField(initial=c(0))
