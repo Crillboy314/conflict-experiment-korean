@@ -33,7 +33,7 @@
     <h2> 귀하는 첫 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다.</h2>
     <p>
         두 번째 사람은 다음과 같이 말했습니다: “나는
-        {% if player.ask_answer%}
+        {% if player.get_ask_answer%}
             {% if player.send_answer == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
@@ -41,7 +41,7 @@
             {% endif %}
             를 선택합니다”.
         {% else %}
-        {{player.get_bot_answer_display}}를 선택합니다”
+        {{player.get_bot_answer}}를 선택합니다”
         {% endif %}
         <br>
         귀하의 최종 선택은 무엇입니까?
@@ -52,7 +52,7 @@
     <h2> 귀하는 두 번째 사람입니다.</h2>
     <p>
         첫 번째 사람은 다음과 같이 말했습니다: “나는
-        {% if player.ask_answer%}
+        {% if player.get_ask_answer%}
             {% if player.send_message == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
@@ -60,10 +60,10 @@
             {% endif %}
         를 선택합니다".
         {% else %}
-        {{ player.get_bot_answer_display }}" 를 선택합니다".
+        {{ player.get_bot_answer }}" 를 선택합니다".
         {% endif %}<br>
         첫 번째 사람의 결정
-        {% if player.ask_answer%}
+        {% if player.get_ask_answer%}
             {% if player.bot_decision == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}

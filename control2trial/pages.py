@@ -24,7 +24,10 @@ class RLC_P1(Page):
     form_fields = ['send_message']
 
     def is_displayed(self):
-        a = self.player.send_message == 'ask' or self.player.send_message is None
+        try:
+            a = self.player.send_message == 'ask'
+        except TypeError:
+            a = None
         if self.player.pNum == 1:
             b = True
         else:
@@ -59,7 +62,10 @@ class RLC_P2(Page):
     form_fields = ['send_answer']
 
     def is_displayed(self):
-        a = self.player.send_answer is None or self.player.send_answer == 'ask'
+        try:
+            a = self.player.send_answer == 'ask'
+        except TypeError:
+            a = None
         if self.player.pNum == 2:
             b = True
         else:

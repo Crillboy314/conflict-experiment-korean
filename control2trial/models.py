@@ -17,7 +17,7 @@ class Constants(BaseConstants):
     name_in_url = 'control2trial'
     players_per_group = 2
     num_rounds = 1
-    
+
     instructions_template = 'control2/Instructions.html'
 
     endowment = c(5)
@@ -78,11 +78,24 @@ class Player(BasePlayer):
         self.trial_payoff = Constants.payoff_matrix[self.decision][self.bot_decision] + Constants.endowment - self.paid_msg * Constants.message_cost
 
     def check_Ask(self):
-        N = self.send_message == 'ask' or self.send_answer == 'ask'
+        try:
+            N = self.send_message == 'ask'
+        except TypeError:
+            try:
+                N = self.send_answer == 'ask'
+            except TypeError:
+                N = False
         Y = self.ask_used and self.ask_answer
         return N and Y
 
     ask_used = models.BooleanField(initial=False)
+
+    def get_ask_answer(self):
+        try:
+            a = self.ask_answer
+        except TypeError:
+            return False
+        return a
 
     ask_answer = models.BooleanField(
         choices=[
@@ -115,6 +128,14 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    def get_bot_answer(self):
+        try:
+            a = self.bot_answer
+        except TypeError:
+            return random.choice(['LC', 'RC', 'ask', 'L', 'R'])
+        return a
+
     bot_answer = models.StringField(
         choices=[
             ['L', 'the Left side'],
