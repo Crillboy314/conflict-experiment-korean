@@ -42,6 +42,13 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
+
+    def get_send_message(self):
+        try:
+            return self.send_message
+        except TypeError:
+            return False
+
     send_message = models.StringField(
         # label = "What option do you want the participant B to think you will chose?",
         choices=[
@@ -130,6 +137,9 @@ class Player(BasePlayer):
         self.paid_msg += 1
         self.group.ask_used = True
         return self.payoff
+
+    def other_player_decision(self):
+        return self.get_others_in_group()[0].decision
 
     def other_player(self):
         return self.get_others_in_group()[0]

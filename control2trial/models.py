@@ -68,12 +68,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     pNum = models.IntegerField()
 
-    bot_decision = models.StringField(
-        choices=[['L', Constants.Bot_codified_L], ['R', Constants.Bot_codified_R]],
-        doc="""This player's bot decision""",
-        widget=widgets.RadioSelect
-    )
-
     def set_payoff(self):
         self.trial_payoff = Constants.payoff_matrix[self.decision][self.bot_decision] + Constants.endowment - self.paid_msg * Constants.message_cost
 
@@ -90,12 +84,23 @@ class Player(BasePlayer):
 
     ask_used = models.BooleanField(initial=False)
 
-    def get_ask_answer(self):
+    def get_bot_decision(self):
         try:
-            a = self.ask_answer
+            return self.bot_decision
         except TypeError:
             return False
-        return a
+
+    bot_decision = models.StringField(
+        choices=[['L', Constants.Bot_codified_L], ['R', Constants.Bot_codified_R]],
+        doc="""This player's bot decision""",
+        widget=widgets.RadioSelect
+    )
+
+    def get_ask_answer(self):
+        try:
+            return self.ask_answer
+        except TypeError:
+            return False
 
     ask_answer = models.BooleanField(
         choices=[
@@ -105,6 +110,13 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         label="Your answer:"
     )
+
+    def get_send_answer(self):
+        try:
+            return self.send_answer
+        except TypeError:
+            return False
+
     send_answer = models.StringField(
         # label = "What option do you want the participant A to think you will chose?",
         choices=[
@@ -116,6 +128,12 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    def get_send_message(self):
+        try:
+            return self.send_message
+        except TypeError:
+            return False
 
     send_message = models.StringField(
         # label = "What option do you want the participant B to think you will chose?",

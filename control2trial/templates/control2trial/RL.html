@@ -33,7 +33,7 @@
     {% if player.pNum == 1 %}
     <h2> You are First Person playing with a bot</h2>
     <p>
-        {% if player.send_answer != None %} {%if player.send_answer != 'ask' %} Second Person's message: "I choose
+        {% if player.get_send_answer %} {%if player.send_answer != 'ask' %} Second Person's message: "I choose
             {% if player.send_answer == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
@@ -42,13 +42,21 @@
         ". {% endif %} {% endif %}<br>
     </p>
     <p> Your message to the other participant?<br>This is not your final answer </p>
-        {{ form.send_message.0 }} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
-        {{ form.send_message.1 }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
+        {{ for choice in form.send_message }}
+            {{ if forloop.counter == 1 }}
+                {{ choice }} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
+            {{ endif }}
+        {{ endfor }}
+        {{ for choice in form.send_message }}
+            {{ if forloop.counter == 2 }}
+                {{ choice }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
+            {{ endif }}
+        {{ endfor }}
         {{ form.send_message.errors}}
     {% else %}
     <h2> You are Second Person playing with a bot</h2>
     <p>
-        {% if player.send_message != None %} {% if player.send_message != 'ask' %} First Person's message: "I choose
+        {% if player.get_send_message %} {% if player.send_message != 'ask' %} First Person's message: "I choose
             {% if player.send_message == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
@@ -57,8 +65,16 @@
         ". {% endif %} {% endif %}<br>
     </p>
     <p> Your message to the other participant?<br>This is not your final answer </p>
-        {{ form.send_answer.0 }} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
-        {{ form.send_answer.1 }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
+        {{ for choice in form.send_message }}
+            {{ if forloop.counter == 1 }}
+                {{ choice}} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
+            {{ endif }}
+        {{ endfor }}
+        {{ for choice in form.send_message }}
+            {{ if forloop.counter == 2 }}
+                {{ choice }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
+            {{ endif }}
+        {{ endfor }}
         {{ form.send_answer.errors}}
     {% endif %}
 </div>
