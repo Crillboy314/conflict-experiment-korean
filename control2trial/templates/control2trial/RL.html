@@ -65,12 +65,12 @@
         ". {% endif %} {% endif %}<br>
     </p>
     <p> Your message to the other participant?<br>This is not your final answer </p>
-        {{ for choice in form.send_message }}
+        {{ for choice in form.send_answer }}
             {{ if forloop.counter == 1 }}
                 {{ choice}} <img src="{% static 'control/left.png' %}" width="10%" height="10%"/> <br> <br>
             {{ endif }}
         {{ endfor }}
-        {{ for choice in form.send_message }}
+        {{ for choice in form.send_answer }}
             {{ if forloop.counter == 2 }}
                 {{ choice }} <img src="{% static 'control/right.png' %}" width="10%" height="10%"/> <br>
             {{ endif }}
