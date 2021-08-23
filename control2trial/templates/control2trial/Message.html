@@ -33,14 +33,14 @@
     {% if player.pNum == 1 %}
     <h2> 귀하는 첫 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다.</h2>
     <p>
-        {% if player.send_answer != None %} {%if player.send_answer != 'ask' %} Second Person's message: "I choose {{player.get_bot_answer_display}}". {% endif %} {% endif %}<br>
+        {% if player.get_send_answer %} {%if player.send_answer != 'ask' %} Second Person's message: "I choose {{player.get_bot_answer_display}}". {% endif %} {% endif %}<br>
     </p>
     {% formfield player.send_message label="귀하는 다른 참가자에게 어떤 메시지를 보내시겠습니까?<br>이것은 귀하의 최종 결정이 아닙니다. " %}
     {% else %}
         
     <h2> 귀하는 두 번째 사람으로 봇(컴퓨터)과 게임하고 있습니다.</h2>
     <p>
-        {% if player.send_message != None %} {% if player.send_message != 'ask' %} 첫 번째 참가자의 메시지: “나는 {{player.get_bot_answer_display}} 를 선택합니다.”. {% endif %} {% endif %}<br>
+        {% if player.get_send_message %} {% if player.send_message != 'ask' %} 첫 번째 참가자의 메시지: “나는 {{player.get_bot_answer_display}} 를 선택합니다.”. {% endif %} {% endif %}<br>
     </p>
     {% formfield player.send_answer label="귀하는 다른 참가자에게 어떤 메시지를 보내시겠습니까?<br>이것은 귀하의 최종 결정이 아닙니다. " %}
     {% endif %}

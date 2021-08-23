@@ -34,7 +34,7 @@
     <p>
         두 번째 사람은 다음과 같이 말했습니다: “나는
         {% if group.get_ask_answer%}
-            {% if group.send_answer == 'R' %}
+            {% if group.get_send_answer == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
                 <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
@@ -53,7 +53,7 @@
     <p>
         첫 번째 사람은 다음과 같이 말했습니다: “나는
         {% if group.get_ask_answer%}
-            {% if group.send_message == 'R' %}
+            {% if group.get_send_message == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
                 <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
@@ -64,7 +64,7 @@
         {% endif %}<br>
         첫 번째 사람의 결정: “
         {% if group.get_ask_answer%}
-            {% if player.other_player.decision == 'R' %}
+            {% if player.other_player_decision == 'R' %}
                 <img src="{% static 'control/right.png' %}" width="10%" height="10%"/>
             {% else %}
                 <img src="{% static 'control/left.png' %}" width="10%" height="10%"/>
