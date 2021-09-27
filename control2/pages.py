@@ -40,8 +40,8 @@ class RLC_P1(Page):
 
     def send_message_choices(self):
         choices = [
-                ['LC', '나는' + Constants.P1_codified_L + '를 선택합니다.'],
-                ['RC', '나는' + Constants.P1_codified_R + '를 선택합니다.']
+                ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
+                ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
         ]
         if not self.group.ask_used:
             choices.append(
@@ -72,8 +72,8 @@ class RLC_P2(Page):
 
     def send_answer_choices(self):
         choices = [
-                ['LC', '나는' + Constants.P2_codified_L + '를 선택합니다.'],
-                ['RC', '나는' + Constants.P2_codified_R + '를 선택합니다.']
+                ['LC', '나는 ' + Constants.P2_codified_L + '를 선택합니다.'],
+                ['RC', '나는 ' + Constants.P2_codified_R + '를 선택합니다.']
         ]
         if not self.group.ask_used:
             choices.append(
