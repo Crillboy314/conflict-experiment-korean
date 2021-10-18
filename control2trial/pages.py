@@ -202,19 +202,6 @@ class DecisionP2(Page):
     form_fields = ['decision']
     template_name = 'control2trial/Decision.html'
 
-    def decision_choices(self):
-        if self.player.pNum == 1:
-            choices = [
-                ['L',Constants.P1_codified_L],
-                ['R',Constants.P1_codified_R]
-            ]
-        else:
-            choices = [
-                ['L', Constants.P2_codified_L],
-                ['R', Constants.P2_codified_R]
-            ]
-        return choices
-
     def is_displayed(self):
         if self.player.id_in_group == 2:
             return True
