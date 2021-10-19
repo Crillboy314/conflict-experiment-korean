@@ -155,6 +155,19 @@ class Player(BasePlayer):
         doc="""This player's decision""",
         widget=widgets.RadioSelect
     )
+    def decision_choices(self):
+       if self.id_in_group != 1:
+            choices = [
+                ['L', Constants.P2_codified_L],
+                 ['R', Constants.P2_codified_R]
+             ]
+       else:
+           choices = [
+               ['L',Constants.P1_codified_L],
+               ['R',Constants.P1_codified_R]
+           ]
+       return choices
+
     paid_msg = models.IntegerField(initial=0)
 
     def use_paid_message(self):

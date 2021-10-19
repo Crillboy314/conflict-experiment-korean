@@ -124,19 +124,6 @@ class DecisionP1(Page):
     def is_displayed(self):
         return self.player.id_in_group == 1
 
-    def decision_choices(self):
-       # if self.player.id_in_group == 1:
-            choices = [
-                ['L',Constants.P1_codified_L],
-                ['R',Constants.P1_codified_R]
-            ]
-        #else:
-           # choices = [
-               # ['L', Constants.P2_codified_L],
-                #['R', Constants.P2_codified_R]
-            #]
-            return choices
-
 
 class DecisionP2(Page):
     template_name = 'control2/Decision.html'
@@ -145,19 +132,6 @@ class DecisionP2(Page):
 
     def is_displayed(self):
         return self.player.id_in_group == 2
-
-    def decision_choices(self):
-        #if self.player.id_in_group == 2:
-            #choices = [
-               # ['L', Constants.P1_codified_L],
-                #['R', Constants.P1_codified_R]
-            #]
-       # else:
-            choices = [
-                ['L', Constants.P2_codified_L],
-                ['R', Constants.P2_codified_R]
-            ]
-            return choices
 
     def vars_for_template(self):
         d = self.player.other_player().decision
