@@ -111,6 +111,8 @@ class Player(BasePlayer):
         label="Your answer:"
     )
 
+
+
     def get_send_answer(self):
         try:
             return self.send_answer
@@ -129,6 +131,17 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    def send_answer_choices(self):
+        choices = [
+            ['LC', '나는 ' + Constants.P2_codified_L + '를 선택합니다.'],
+            ['RC', '나는 ' + Constants.P2_codified_R + '를 선택합니다.']
+        ]
+        if not self.player.ask_used:
+            choices.append(
+                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
+            )
+        return choices
+
     def get_send_message(self):
         try:
             return self.send_message
@@ -146,6 +159,17 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    def send_message_choices(self):
+        choices = [
+                ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
+                ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
+        ]
+        if not self.player.ask_used:
+            choices.append(
+                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
+            )
+        return choices
 
     def get_bot_answer(self):
         try:

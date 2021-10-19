@@ -36,16 +36,7 @@ class RLC_P1(Page):
             b = False
         return a and b
 
-    def send_message_choices(self):
-        choices = [
-                ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
-                ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
-        ]
-        if not self.player.ask_used:
-            choices.append(
-                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
-            )
-        return choices
+
 
     def before_next_page(self):
         if self.player.send_message == 'ask':
@@ -74,16 +65,7 @@ class RLC_P2(Page):
             b = False
         return a and b
 
-    def send_answer_choices(self):
-        choices = [
-            ['LC', '나는 ' + Constants.P2_codified_L + '를 선택합니다.'],
-            ['RC', '나는 ' + Constants.P2_codified_R + '를 선택합니다.']
-        ]
-        if not self.player.ask_used:
-            choices.append(
-                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
-            )
-        return choices
+
 
     def before_next_page(self):
         if self.player.send_answer == 'ask':
