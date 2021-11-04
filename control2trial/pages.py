@@ -27,7 +27,7 @@ class RLC_P1(Page):
         try:
             a = self.player.send_message == 'ask'
         except TypeError:
-            a = None
+            a = True
         if self.player.pNum == 1:
             b = True
         else:
@@ -56,7 +56,7 @@ class RLC_P2(Page):
         try:
             a = self.player.send_answer == 'ask'
         except TypeError:
-            a = None
+            a = True
         if self.player.pNum == 2:
             b = True
         else:

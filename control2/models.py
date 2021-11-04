@@ -63,6 +63,8 @@ class Group(BaseGroup):
 
     def send_message_choices(self):
         choices = [
+                # I choose A
+                # 나는 A를 선택합니다.
                 ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
                 ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
         ]

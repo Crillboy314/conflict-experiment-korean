@@ -136,7 +136,7 @@ class Player(BasePlayer):
             ['LC', '나는 ' + Constants.P2_codified_L + '를 선택합니다.'],
             ['RC', '나는 ' + Constants.P2_codified_R + '를 선택합니다.']
         ]
-        if not self.player.ask_used:
+        if not self.ask_used:
             choices.append(
                 ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
             )
@@ -165,7 +165,7 @@ class Player(BasePlayer):
                 ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
                 ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
         ]
-        if not self.player.ask_used:
+        if not self.ask_used:
             choices.append(
                 ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
             )
@@ -242,9 +242,9 @@ class Player(BasePlayer):
         return self.payoff
 
     question_1 = models.IntegerField(
-    label = "귀하가 첫 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 두 번째 사람도 오른쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
-    min=10,max=70)
+        label = "귀하가 첫 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 두 번째 사람도 오른쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
+        min=10,max=70)
 
     question_2 = models.IntegerField(
-    label = "귀하가 두 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 첫 번째 사람이 왼쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
-    min=10,max=70)
+        label = "귀하가 두 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 첫 번째 사람이 왼쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
+        min=10,max=70)
