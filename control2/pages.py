@@ -38,17 +38,6 @@ class RLC_P1(Page):
 
         return self.player.id_in_group == 1 and a
 
-    def send_message_choices(self):
-        choices = [
-                ['LC', '나는' + Constants.P1_codified_L + '를 선택합니다.'],
-                ['RC', '나는' + Constants.P1_codified_R + '를 선택합니다.']
-        ]
-        if not self.group.ask_used:
-            choices.append(
-                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
-            )
-        return choices
-
     def before_next_page(self):
         if self.group.send_message == 'ask':
             self.player.use_paid_message()
@@ -69,17 +58,6 @@ class RLC_P2(Page):
         except TypeError:
             a = True
         return self.player.id_in_group == 2 and a
-
-    def send_answer_choices(self):
-        choices = [
-                ['LC', '나는' + Constants.P2_codified_L + '를 선택합니다.'],
-                ['RC', '나는' + Constants.P2_codified_R + '를 선택합니다.']
-        ]
-        if not self.group.ask_used:
-            choices.append(
-                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
-            )
-        return choices
 
     def before_next_page(self):
         if self.group.send_answer == 'ask':
@@ -146,19 +124,6 @@ class DecisionP1(Page):
     def is_displayed(self):
         return self.player.id_in_group == 1
 
-    def decision_choices(self):
-       # if self.player.id_in_group == 1:
-            choices = [
-                ['L',Constants.P1_codified_L],
-                ['R',Constants.P1_codified_R]
-            ]
-        #else:
-           # choices = [
-               # ['L', Constants.P2_codified_L],
-                #['R', Constants.P2_codified_R]
-            #]
-            return choices
-
 
 class DecisionP2(Page):
     template_name = 'control2/Decision.html'
@@ -167,19 +132,6 @@ class DecisionP2(Page):
 
     def is_displayed(self):
         return self.player.id_in_group == 2
-
-    def decision_choices(self):
-        #if self.player.id_in_group == 2:
-            #choices = [
-               # ['L', Constants.P1_codified_L],
-                #['R', Constants.P1_codified_R]
-            #]
-       # else:
-            choices = [
-                ['L', Constants.P2_codified_L],
-                ['R', Constants.P2_codified_R]
-            ]
-            return choices
 
     def vars_for_template(self):
         d = self.player.other_player().decision

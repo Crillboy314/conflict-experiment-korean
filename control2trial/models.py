@@ -111,6 +111,8 @@ class Player(BasePlayer):
         label="Your answer:"
     )
 
+
+
     def get_send_answer(self):
         try:
             return self.send_answer
@@ -129,6 +131,17 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    def send_answer_choices(self):
+        choices = [
+            ['LC', '나는 ' + Constants.P2_codified_L + '를 선택합니다.'],
+            ['RC', '나는 ' + Constants.P2_codified_R + '를 선택합니다.']
+        ]
+        if not self.ask_used:
+            choices.append(
+                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
+            )
+        return choices
+
     def get_send_message(self):
         try:
             return self.send_message
@@ -146,6 +159,17 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    def send_message_choices(self):
+        choices = [
+                ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
+                ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
+        ]
+        if not self.ask_used:
+            choices.append(
+                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
+            )
+        return choices
 
     def get_bot_answer(self):
         try:
@@ -195,6 +219,20 @@ class Player(BasePlayer):
         doc="""This player's decision""",
         widget=widgets.RadioSelect
     )
+
+    def decision_choices(self):
+        if self.pNum == 1:
+            choices = [
+                ['L', Constants.P1_codified_L],
+                ['R', Constants.P1_codified_R]
+            ]
+        else:
+            choices = [
+                ['L', Constants.P2_codified_L],
+                ['R', Constants.P2_codified_R]
+            ]
+        return choices
+
     paid_msg = models.IntegerField(initial=0)
     trial_payoff = models.CurrencyField(initial=0)
 
@@ -204,9 +242,9 @@ class Player(BasePlayer):
         return self.payoff
 
     question_1 = models.IntegerField(
-    label = "귀하가 첫 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 두 번째 사람도 오른쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
-    min=10,max=70)
+        label = "귀하가 첫 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 두 번째 사람도 오른쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
+        min=10,max=70)
 
     question_2 = models.IntegerField(
-    label = "귀하가 두 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 첫 번째 사람이 왼쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
-    min=10,max=70)
+        label = "귀하가 두 번째 사람이고 오른쪽 기호를 선택했다고 가정할 때, 첫 번째 사람이 왼쪽 기호를 선택하면 귀하는 몇 점을 획득하게 됩니까?",
+        min=10,max=70)

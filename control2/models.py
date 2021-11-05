@@ -61,6 +61,20 @@ class Group(BaseGroup):
         widget=widgets.RadioSelect
     )
 
+    def send_message_choices(self):
+        choices = [
+                # I choose A
+                # 나는 A를 선택합니다.
+                ['LC', '나는 ' + Constants.P1_codified_L + '를 선택합니다.'],
+                ['RC', '나는 ' + Constants.P1_codified_R + '를 선택합니다.']
+        ]
+        if not self.ask_used:
+            choices.append(
+                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
+            )
+        return choices
+
+
     def get_send_answer(self):
         try:
             return self.send_answer
@@ -78,6 +92,18 @@ class Group(BaseGroup):
         ],
         widget=widgets.RadioSelect
     )
+
+    def send_answer_choices(self):
+        choices = [
+                ['LC', '나는 ' + Constants.P2_codified_L + '를 선택합니다.'],
+                ['RC', '나는 ' + Constants.P2_codified_R + '를 선택합니다.']
+        ]
+        if not self.ask_used:
+            choices.append(
+                ['ask', '5점의 비용을 지불하고 다른 참가자에게 그림의 어느 쪽을 선택할 계획인지 물어보겠습니다.']
+            )
+        return choices
+
     ask_used = models.BooleanField(initial=False)
 
     def get_ask_answer(self):
@@ -131,6 +157,19 @@ class Player(BasePlayer):
         doc="""This player's decision""",
         widget=widgets.RadioSelect
     )
+    def decision_choices(self):
+       if self.id_in_group != 1:
+            choices = [
+                ['L', Constants.P2_codified_L],
+                 ['R', Constants.P2_codified_R]
+             ]
+       else:
+           choices = [
+               ['L',Constants.P1_codified_L],
+               ['R',Constants.P1_codified_R]
+           ]
+       return choices
+
     paid_msg = models.IntegerField(initial=0)
 
     def use_paid_message(self):
